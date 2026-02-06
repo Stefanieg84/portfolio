@@ -1,5 +1,31 @@
-title: Stefanie Garises
-logo: ./assets/images/display_picture.png
-description: >
-  I document my work, my learning, and the deliberate cultivation of agency.
-theme: jekyll-theme-minimal
+# GitHub Pages Configuration (Optional)
+# This file is not strictly necessary for a custom HTML site,
+# but can be useful for additional GitHub Pages settings
+
+# Site settings
+title: Your Name - Creative Portfolio
+description: GRC Systems Architect | Creative Practitioner | Systems Designer
+author: Your Name
+email: hello@example.com
+
+# Social links (optional, for potential integrations)
+github_username: yourusername
+linkedin_username: yourlinkedin
+
+# Build settings (for Jekyll, but we're using custom HTML)
+# These are here in case you want to add a blog or other Jekyll features later
+markdown: kramdown
+theme: null  # We're using custom HTML/CSS, not a Jekyll theme
+
+# Exclude files from build (optional)
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+# GitHub Pages specific
+# url: "https://yourusername.github.io"  # Uncomment and customize if using custom domain
+# baseurl: ""  # Leave empty if at root, or "/portfolio" if in a subfolder
+
+# Analytics (optional - add your tracking codes)
+# google_analytics: UA-XXXXXXXXX-X
