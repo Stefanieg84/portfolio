@@ -16,8 +16,10 @@
             <a href="#" class="nav-brand">Stefanie Garises</a>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#education">Education</a>
                 <a href="#work">Work</a>
                 <a href="#projects">Projects</a>
+                <a href="#videos">Videos</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -25,10 +27,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
@@ -36,10 +35,6 @@
                     <span class="hero-title-sub">portfolio</span>
                 </h1>
                 <p class="hero-tagline">Mastering the balance between protecting and enabling people to take necessary risks toward sustainable wellbeing.</p>
-            </div>
-            <div class="hero-image">
-                <!-- Your hero image goes here -->
-                <div class="image-placeholder"></div>
             </div>
         </div>
         <div class="hero-footer">
@@ -50,75 +45,226 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Introduction Section -->
-    <section class="section intro-section" id="about">
+    <section class="section about-section" id="about">
         <div class="section-grid">
-            <div class="section-content">
-                <h2 class="section-title">intro-<br>duction</h2>
-                <div class="section-text">
-                    <p>I'm a GRC systems architect, developer, and analyst focused on designing, implementing, and scaling systems that heal people from the pain that other systems imposed upon us.</p>
-                    <p>As much as I'm technical, I am a creative looking to craft solutions that balance protection with empowerment.</p>
-                </div>
-            </div>
-            <div class="section-image">
-                <div class="image-placeholder"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hello Section -->
-    <section class="section hello-section">
-        <div class="section-grid reverse">
-            <div class="section-image">
-                <div class="image-placeholder"></div>
-            </div>
             <div class="section-content">
                 <h2 class="section-title-large">hello, i'm<br>Stefanie!</h2>
-                <p class="section-text">I combine governance, risk, compliance expertise with creative problem-solving to build systems that enable sustainable wellbeing. My work bridges technical precision with human-centered design.</p>
+                <div class="section-text">
+                    <p>I'm a GRC systems architect, developer, and analyst focused on designing, implementing, and scaling systems that heal people from the pain that other systems imposed upon us.</p>
+                    <p>I combine governance, risk, compliance expertise with creative problem-solving to build systems that enable sustainable wellbeing. My work bridges technical precision with human-centered design.</p>
+                </div>
+            </div>
+            <div class="section-image">
+                <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/full_portrait.JPG');"></div>
             </div>
         </div>
     </section>
 
-    <!-- Education/Background Section -->
-    <section class="section education-section">
-        <div class="section-grid">
-            <div class="section-content">
-                <h2 class="section-title">my<br>education</h2>
-                <p class="section-text">Building systems that protect and enable people through the intersection of governance, risk management, and creative design.</p>
+    <!-- YouTube Videos Section -->
+    <section class="section videos-section" id="videos">
+        <div class="section-header">
+            <h2 class="section-title-large">leadership &<br>development</h2>
+            <p class="section-intro">Sharing insights on effective leadership, personal growth, and building systems that empower people.</p>
+        </div>
+        
+        <div class="videos-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://youtu.be/kN9ARbqKVBw?si=lTw5Bw8c0oRyF45P" 
+                        title="Career Curious Episode 1: Career Shapes"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Career Curious Episode 1: Career Shapes</h3>
+                    <p>An excessively long breakdown on shaping careers.</p>
+                </div>
             </div>
-            <div class="section-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <h3>Namibia University of Science and Technology (NUST)</h3>
-                        <span class="timeline-date">[2015 - 2018]</span>
-                    </div>
-                    <p>BSc in Computer Science with a focus on Software Development. This shaped my approach to designing systems that are both secure and user-friendly.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <h3>Namibia University of Science and Technology (NUST)</h3>
-                        <span class="timeline-date">[2021 - 2023]</span>
-                    </div>
-                    <p>BSc(H) in Computer Science (Honours) with a focus on Software Development including a mini thesis. This shaped my ability to synthesise a real-world problem into an analytics solution based on software development principles.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <h3>University of Sussex</h3>
-                        <span class="timeline-date">[2025 - 2027]</span>
-                    </div>
-                    <p>MSc in Sustainable Development with a focus on applied use cases. This is shaping my ability to think about problems holistically and consider long-term impacts on communities and environments.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Certifications & Training</h3>
-                    <p>Relevant certifications in GRC, security, or related fields that inform my creative practice.</p>
-                    <h4>TOGAF 9 Practitioner</h4>
-                    <p>Certified in TOGAF 9, I apply enterprise architecture principles to design systems that align with organisational goals while enabling innovation.</p>
-                    <h4>Financial Risk Manager (FRM) Part I Exam Passed</h4>
-                    <p>Having passed the FRM Part I exam, I bring a strong understanding of risk management principles to my systems design work, enabling me to create solutions that balance risk and opportunity effectively.</p>
-                    <h4>Microsoft Fabric Analytics Engineering Associate</h4>
-                    <p>As a Microsoft Fabric Analytics Engineering Associate, I leverage advanced analytics and data engineering skills to design systems that provide actionable insights while ensuring data governance and compliance.</p>
 
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://youtu.be/Lx8pCpTScuI?si=DYjU95I8QcYOFdpC" 
+                        title="Trust Foundry - Episode 1: How My Upbringing Shaped My Principles for Trust"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Trust Foundry - Episode 1: How My Upbringing Shaped My Principles for Trust</h3>
+                    <p>In this first episode, I dive define the Trust Foundry podcast, explore my childhood experiences and values, and summarise my current #TrustPrinciples. </p>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://youtu.be/Lx8pCpTScuI?si=Ufmak7dZ0LzbMYA1" 
+                        title="Data Strategy Overview"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Data Strategy Overview</h3>
+                    <p>What is a Data Strategy? Where does it come from? What is it used for? How can it help my business? 
+
+These are all questions that I take a stab at addressing in this overview.
+Data Strategy is a massive topic and we will need several videos and sessions to dive deeper into any area. Good thing we're so excited about the topic and I'm happy to talk you through it.</p>
+                </div>
+            </div>
+
+            <!-- Add more video cards as needed -->
+        </div>
+
+        <div class="videos-cta">
+            <a href="https://www.youtube.com/@StefanieGarises96" target="_blank" class="btn-secondary">
+                View All Videos on YouTube →
+            </a>
+        </div>
+    </section>
+
+    <!-- Education Section with Interactive Timeline -->
+    <section class="section education-section" id="education">
+        <div class="education-header">
+            <h2 class="section-title">my<br>education</h2>
+            <p class="section-text">Building systems that protect and enable people through the intersection of governance, risk management, and creative design.</p>
+        </div>
+        
+        <div class="timeline-horizontal">
+            <!-- Degree 1 -->
+            <div class="timeline-item-horizontal" data-timeline="degree1">
+                <div class="timeline-marker">
+                    <div class="timeline-icon">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/NUST_logo.png');"></div>
+                        <!-- <img src="assets/images/logos/NUST_logo.png" alt="NUST Logo" class="timeline-logo"> -->
+                    </div>
+                </div>
+                <h3 class="timeline-title">BSc Computer Science</h3>
+                <div class="timeline-content">
+                    <div class="timeline-badge">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/NUST_logo.png');"></div>
+                        <!-- <img src="assets/images/badges/nust-badge.png" alt="NUST Badge"> -->
+                    </div>
+                    <div class="timeline-details">
+                        <span class="timeline-institution">Namibia University of Science and Technology (NUST)</span>
+                        <span class="timeline-date">2015 - 2018</span>
+                        <p>BSc in Computer Science with a focus on Software Development. This shaped my approach to designing systems that are both secure and user-friendly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Degree 2 -->
+            <div class="timeline-item-horizontal" data-timeline="degree2">
+                <div class="timeline-marker">
+                    <div class="timeline-icon">
+                        <img src="assets/images/logos/nust-logo.png" alt="NUST Logo" class="timeline-logo">
+                    </div>
+                </div>
+                <h3 class="timeline-title">BSc(H) Computer Science</h3>
+                <div class="timeline-content">
+                    <div class="timeline-badge">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/NUST_logo.png');"></div>
+                        <!-- <img src="assets/images/badges/nust-honours-badge.png" alt="NUST Honours Badge"> -->
+                    </div>
+                    <div class="timeline-details">
+                        <span class="timeline-institution">Namibia University of Science and Technology (NUST)</span>
+                        <span class="timeline-date">2021 - 2023</span>
+                        <p>BSc(H) in Computer Science (Honours) with a focus on Software Development including a mini thesis. This shaped my ability to synthesise a real-world problem into an analytics solution based on software development principles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Degree 3 -->
+            <div class="timeline-item-horizontal active" data-timeline="degree3">
+                <div class="timeline-marker">
+                    <div class="timeline-icon">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/USuss_logo.png');"></div>
+                        <!-- <img src="assets/images/logos/sussex-logo.png" alt="Sussex Logo" class="timeline-logo"> -->
+                    </div>
+                </div>
+                <h3 class="timeline-title">MSc Sustainable Development</h3>
+                <div class="timeline-content">
+                    <div class="timeline-badge">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/USuss_logo.png');"></div>
+                        <!-- <img src="assets/images/badges/sussex-badge.png" alt="Sussex Badge"> -->
+                    </div>
+                    <div class="timeline-details">
+                        <span class="timeline-institution">University of Sussex</span>
+                        <span class="timeline-date">2025 - 2027</span>
+                        <p>MSc in Sustainable Development with a focus on applied use cases. This is shaping my ability to think about problems holistically and consider long-term impacts on communities and environments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 1 -->
+            <div class="timeline-item-horizontal" data-timeline="cert1">
+                <div class="timeline-marker">
+                    <div class="timeline-icon">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/TOGAF_logo.png');"></div>
+                        <!-- <img src="assets/images/logos/togaf-logo.png" alt="TOGAF Logo" class="timeline-logo"> -->
+                    </div>
+                </div>
+                <h3 class="timeline-title">TOGAF 9 Practitioner</h3>
+                <div class="timeline-content">
+                    <div class="timeline-badge">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/TOGAF_logo.png');"></div>
+                        <!-- <img src="assets/images/badges/togaf-badge.png" alt="TOGAF Badge"> -->
+                    </div>
+                    <div class="timeline-details">
+                        <span class="timeline-institution">The Open Group</span>
+                        <p>Certified in TOGAF 9, I apply enterprise architecture principles to design systems that align with organisational goals while enabling innovation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 2 -->
+            <div class="timeline-item-horizontal" data-timeline="cert2">
+                <div class="timeline-marker">
+                    <div class="timeline-icon">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/FRM1 Badge.webp');"></div>
+                        <!-- <img src="assets/images/logos/garp-logo.png" alt="GARP Logo" class="timeline-logo"> -->
+                    </div>
+                </div>
+                <h3 class="timeline-title">FRM Part I</h3>
+                <div class="timeline-content">
+                    <div class="timeline-badge">
+                        <div class="image-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/logos/FRM1 Badge.webp');"></div>
+                        <!-- <img src="assets/images/badges/frm-badge.png" alt="FRM Badge"> -->
+                    </div>
+                    <div class="timeline-details">
+                        <span class="timeline-institution">Global Association of Risk Professionals (GARP)</span>
+                        <p>Having passed the FRM Part I exam, I bring a strong understanding of risk management principles to my systems design work, enabling me to create solutions that balance risk and opportunity effectively.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 3 -->
+            <div class="timeline-item-horizontal" data-timeline="cert3">
+                <div class="timeline-marker">
+                    <div class="timeline-icon">
+                        <img src="assets/images/logos/microsoft-logo.png" alt="Microsoft Logo" class="timeline-logo">
+                    </div>
+                </div>
+                <h3 class="timeline-title">Fabric Analytics Engineer</h3>
+                <div class="timeline-content">
+                    <div class="timeline-badge">
+                        <img src="assets/images/badges/fabric-badge.png" alt="Fabric Badge">
+                    </div>
+                    <div class="timeline-details">
+                        <span class="timeline-institution">Microsoft</span>
+                        <p>As a Microsoft Fabric Analytics Engineering Associate, I leverage advanced analytics and data engineering skills to design systems that provide actionable insights while ensuring data governance and compliance.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,7 +280,7 @@
             <div class="skills-list">
                 <div class="skill-item">
                     <h3>Systems Architecture</h3>
-                    <p>Designing GRC frameworks that balance security with usability and enable organizational resilience.</p>
+                    <p>Designing GRC frameworks that balance security with usability and enable organisational resilience.</p>
                 </div>
                 <div class="skill-item">
                     <h3>Creative Synthesis</h3>
@@ -142,7 +288,7 @@
                 </div>
                 <div class="skill-item">
                     <h3>Risk Enablement</h3>
-                    <p>Helping organizations take calculated risks that drive innovation while maintaining appropriate controls.</p>
+                    <p>Helping organisations take calculated risks that drive innovation while maintaining appropriate controls.</p>
                 </div>
             </div>
         </div>
@@ -157,19 +303,19 @@
             </div>
             <div class="work-list">
                 <div class="work-item">
-                    <h3>Organization Name One</h3>
+                    <h3>organisation Name One</h3>
                     <p>Your role and impact. How you balanced protection with enablement in this context.</p>
                 </div>
                 <div class="work-item">
-                    <h3>Organization Name Two</h3>
+                    <h3>organisation Name Two</h3>
                     <p>Key achievements and systems you designed or improved.</p>
                 </div>
                 <div class="work-item">
-                    <h3>Organization Name Three</h3>
+                    <h3>organisation Name Three</h3>
                     <p>Notable projects and the creative approaches you brought to technical challenges.</p>
                 </div>
                 <div class="work-item">
-                    <h3>Organization Name Four</h3>
+                    <h3>organisation Name Four</h3>
                     <p>Additional experience that shaped your unique perspective on systems design.</p>
                 </div>
             </div>
@@ -204,11 +350,11 @@
                 <div class="image-stack">
 
                     <div class="image-card image-back">
-                    <img src="https://github.com/Stefanieg84/pbi-green-bank-cross-border-spend-monitoring/blob/2922e5e0c8d4137ea8ef8cccebaea0a986ee79c7/screenshot_previews/Green%20Bank%20Dashboard%20Page%203%20-%20Breach%20Control%20Effectiveness.jpeg" alt="Breach Control Effectiveness dashboard screenshot">
+                    <img src="https://github.com/Stefanieg84/pbi-green-bank-cross-border-spend-monitoring/blob/2922e5e0c8d4137ea8ef8cccebaea0a986ee79c7/screenshot_previews/Green%20Bank%20Dashboard%20Page%203%20-%20Breach%20Control%20Effectiveness.jpeg?raw=true" alt="Breach Control Effectiveness dashboard screenshot">
                     </div>
 
                     <div class="image-card image-front">
-                    <img src="https://github.com/Stefanieg84/pbi-green-bank-cross-border-spend-monitoring/blob/2922e5e0c8d4137ea8ef8cccebaea0a986ee79c7/Green%20Bank%20Dashboard%20Semantic%20Data%20Model%20-%20Star%20Schema.jpeg" alt="Star Schema diagram">
+                    <img src="https://github.com/Stefanieg84/pbi-green-bank-cross-border-spend-monitoring/blob/2922e5e0c8d4137ea8ef8cccebaea0a986ee79c7/Green%20Bank%20Dashboard%20Semantic%20Data%20Model%20-%20Star%20Schema.jpeg?raw=true" alt="Star Schema diagram">
                     </div>
 
                 </div>
@@ -216,52 +362,76 @@
         </div>
     </section>
 
-    <!-- Project Showcase: [Project Name] -->
+    <!-- Project Showcase: azure-agents -->
     <section class="section project-detail reverse">
         <div class="project-layout">
             <div class="project-visual">
                 <div class="architecture-diagram">
-                    <div class="diagram-placeholder">
-                        <!-- Architecture diagram image or SVG -->
-                        <p>Architecture Diagram</p>
-                    </div>
+                    <div class="diagram-placeholder" style="--placeholder-text: ''; background-image: url('assets/images/architecture.png');"></div>
                 </div>
             </div>
             <div class="project-content">
-                <h3 class="project-title">second<br>project</h3>
-                <p class="project-description">Another significant project showcasing your approach to systems design. Could include automated controls, risk dashboards, or compliance automation.</p>
+                <h3 class="project-title">Microsoft Agent Framework<br>Hackathon</h3>
+                <p class="project-description">Automated Compliance Agents Hackathon!</p>
                 <div class="project-links">
-                    <a href="https://github.com/yourusername/repo2" target="_blank" class="project-link">View on GitHub →</a>
+                    <a href="https://github.com/Stefanieg84/azure-trust-agents" target="_blank" class="project-link">View on GitHub →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Showcase: [Project Name] -->
+    <!-- Project Showcase: dbt_basic -->
     <section class="section project-detail">
         <div class="project-layout">
             <div class="project-content">
-                <h3 class="project-title">cross border<br>spend monitoring</h3>
-                <p class="project-description">This repository contains a Power BI demo solution that models and visualises cross-border customer spend for a fictional retail bank, Green Bank.<br><br>
-                    The focus is on risk monitoring, annual limit breaches, and executive-level oversight, using realistic financial services reporting patterns.<br><br>
-                    The project demonstrates best-practice dimensional modelling, advanced DAX, and defensible KPI design, with particular emphasis on correct evaluation grain and auditability.</p>
+                <h3 class="project-title">dbt<br>basic</h3>
+                <p class="project-description">Just a plain dbt project.</p>
                 <div class="project-links">
-                    <a href="https://github.com/yourusername/repo1" target="_blank" class="project-link">View on GitHub →</a>
+                    <a href="https://github.com/Stefanieg84/dbt-basic" target="_blank" class="project-link">View on GitHub →</a>
                 </div>
             </div>
             <div class="project-visual">
                 <div class="code-preview">
                     <div class="code-header">
-                        <span>example-architecture.py</span>
+                        <span>dbt_basic/dbt_project.yml</span>
                     </div>
-                    <pre><code># Your code snippet here
-                        class ComplianceFramework:
-                            def __init__(self):
-                                self.controls = []
-                                
-                            def assess_risk(self, context):
-                                # Implementation
-                    pass</code></pre>
+                    <pre><code>
+                        
+                        profile: 'dbt_basic'
+
+                        model-paths: ["models"]
+                        analysis-paths: ["analyses"]
+                        test-paths: ["tests"]
+                        seed-paths: ["seeds"]
+                        macro-paths: ["macros"]
+                        snapshot-paths: ["snapshots"]
+
+                        clean-targets:         # directories to be removed by `dbt clean`
+                        - "target"
+                        - "dbt_packages"
+
+
+                        # Configuring models
+                        # Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+                        models:
+                        dbt_basic:
+                            staging:
+                            schema: staging
+                            materialized: view
+                            refined:
+                            schema: refined
+                            materialized: view
+                            l1_landing:
+                            schema: L1_LANDING
+                            materialized: table
+                            l2_staging:
+                            schema: L2_STAGING
+                            materialized: view
+                            l3_consumption:
+                            schema: L3_CONSUMPTION
+                            materialized: table
+                        </code></pre>
                 </div>
             </div>
         </div>
@@ -271,7 +441,7 @@
     <section class="section thank-you-section" id="contact">
         <div class="thank-you-content">
             <h2 class="section-title-hero">thank you so<br>much!</h2>
-            <p>Let's connect and explore how creative systems thinking can drive sustainable wellbeing in your organization.</p>
+            <p>Let's connect and explore how creative systems thinking can drive sustainable wellbeing in your organisation.</p>
             <div class="contact-cta">
                 <a href="mailto:hello@example.com" class="btn-primary">Get in Touch</a>
             </div>
