@@ -231,7 +231,7 @@ body {
     aspect-ratio: 4/5;
     background: linear-gradient(135deg, var(--color-gray-light) 0%, var(--color-gray-mid) 100%);
     position: relative;
-    overflow: hidden;
+    overflow: hidden;  
 }
 
 .image-placeholder::after {
@@ -506,6 +506,10 @@ body {
     direction: ltr;
 }
 
+.project-visual {
+  position: relative;
+}
+
 .project-title {
     font-family: var(--font-display);
     font-size: clamp(3rem, 6vw, 5rem);
@@ -588,6 +592,40 @@ body {
     justify-content: center;
     color: var(--color-gray-dark);
     font-size: 1.2rem;
+}
+
+/* Stack container */
+.image-stack {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 3;
+}
+
+/* Shared card styles */
+.image-card {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #e5e5e5;
+}
+
+/* Images */
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-back {
+  z-index: 1;
+}
+
+.image-front {
+  z-index: 2;
+  transform: translate(24px, 24px);
 }
 
 /* Thank You Section */
