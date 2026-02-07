@@ -633,7 +633,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 520px;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/3.5;
 }
 
 .image-card {
@@ -656,8 +656,16 @@ body {
 }
 
 .image-front {
-    z-index: 3;
+    z-index: 2;
     transform: translate(254px, 154px);
+    width: 70%;
+    height: 70%;
+}
+
+.image-front .image-card img {
+    width: 50%;
+    height: 50%;
+    object-fit: fill;
 }
 
 /* Code Preview */
