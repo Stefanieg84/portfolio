@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governed Adaptive Systems Engine - Stefanie Garises</title>
+    <link rel="stylesheet" href="engine-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="engine-nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-back">← Portfolio</a>
+            <h1 class="nav-title">Governed Adaptive Systems Engine</h1>
+            <div class="nav-modes">
+                <button class="mode-btn active" data-mode="explore">Explore</button>
+                <button class="mode-btn" data-mode="stories">Stories</button>
+                <button class="mode-btn" data-mode="evidence">Evidence</button>
+                <button class="mode-btn" data-mode="timeline">Timeline</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="engine-container">
+        <!-- 3D Canvas -->
+        <div class="canvas-wrapper">
+            <canvas id="engine-canvas"></canvas>
+            
+            <!-- Core Values Overlay -->
+            <div class="core-values" id="coreValues">
+                <h2>Core Vision & Values</h2>
+                <ul>
+                    <li>Human-centred systems</li>
+                    <li>Protection against adverse behaviour</li>
+                    <li>Governance as an enabler of innovation</li>
+                    <li>Sustainable, long-term change</li>
+                    <li>Decision integrity under uncertainty</li>
+                </ul>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p>Initializing Governed Systems Engine...</p>
+            </div>
+
+            <!-- Controls -->
+            <div class="canvas-controls">
+                <div class="control-group">
+                    <label>Rotation Speed</label>
+                    <input type="range" id="rotationSpeed" min="0" max="2" step="0.1" value="0.5">
+                </div>
+                <div class="control-group">
+                    <label>View Mode</label>
+                    <select id="viewMode">
+                        <option value="full">Full System</option>
+                        <option value="use-cases">Use Cases</option>
+                        <option value="skills">Skills Only</option>
+                        <option value="signals">Signals</option>
+                        <option value="ea-planes">EA Planes</option>
+                        <option value="grc-mesh">GRC Mesh</option>
+                    </select>
+                </div>
+                <button class="reset-btn" id="resetView">Reset View</button>
+            </div>
+        </div>
+
+        <!-- Side Panel -->
+        <div class="side-panel" id="sidePanel">
+            <!-- Explore Mode -->
+            <div class="panel-content" data-panel="explore">
+                <h2>System Overview</h2>
+                <p class="intro-text">
+                    This is a living representation of my professional practice - 
+                    an adaptive system that reflects how I think, decide, and create 
+                    impact across complex, regulated environments.
+                </p>
+
+                <div class="system-stats">
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalUseCases">0</span>
+                        <span class="stat-label">Use Cases</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalSkills">0</span>
+                        <span class="stat-label">Active Skills</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalEvidence">0</span>
+                        <span class="stat-label">Evidence Items</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="avgCMMI">0.0</span>
+                        <span class="stat-label">Avg CMMI Level</span>
+                    </div>
+                </div>
+
+                <div class="selected-info" id="selectedInfo">
+                    <h3>Click an element to explore</h3>
+                    <p>Interact with the 3D engine to view use cases, skills, and evidence.</p>
+                </div>
+
+                <!-- CMMI Legend -->
+                <div class="cmmi-legend">
+                    <h3>CMMI Maturity Levels</h3>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #999;"></span>
+                        <span>Level 1: Exposure</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #777;"></span>
+                        <span>Level 2: Repeatable</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #4A90E2;"></span>
+                        <span>Level 3: Defined</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #50C878;"></span>
+                        <span>Level 4: Measured & Optimised</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #FFD700;"></span>
+                        <span>Level 5: Adaptive & Continuously Improving</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stories Mode -->
+            <div class="panel-content hidden" data-panel="stories">
+                <h2>Retrospective Stories</h2>
+                <p class="intro-text">Walk through real scenarios, explore decisions made, and understand impact and trade-offs.</p>
+                
+                <div class="stories-filter">
+                    <select id="storiesFilter">
+                        <option value="all">All Domains</option>
+                        <option value="grc">GRC & Internal Audit</option>
+                        <option value="analytics">Analytics Engineering</option>
+                        <option value="ea">Enterprise Architecture</option>
+                        <option value="development">Development & Infrastructure</option>
+                    </select>
+                </div>
+
+                <div id="storiesList" class="stories-list">
+                    <!-- Stories will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Evidence Mode -->
+            <div class="panel-content hidden" data-panel="evidence">
+                <h2>Evidence & Verification</h2>
+                <p class="intro-text">Time-weighted evidence from practice, reviews, and independent verification.</p>
+
+                <div class="evidence-tabs">
+                    <button class="evidence-tab active" data-tab="github">GitHub Activity</button>
+                    <button class="evidence-tab" data-tab="reviews">Performance Reviews</button>
+                    <button class="evidence-tab" data-tab="testimonials">Testimonials</button>
+                    <button class="evidence-tab" data-tab="ratings">Public Ratings</button>
+                </div>
+
+                <div id="evidenceContent" class="evidence-content">
+                    <!-- Evidence content will be loaded here -->
+                </div>
+
+                <!-- Rate My Skills Form -->
+                <div class="rate-form">
+                    <h3>Rate My Skills</h3>
+                    <p>If you've worked with me, please share your experience. Context is required.</p>
+                    <form id="ratingForm">
+                        <div class="form-group">
+                            <label>Select Skill</label>
+                            <select id="ratingSkill" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Role / Context (Required)</label>
+                            <input type="text" id="ratingContext" placeholder="e.g., Project Manager on X initiative" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating (1-5)</label>
+                            <div class="rating-stars" id="ratingStars">
+                                <span data-value="1">☆</span>
+                                <span data-value="2">☆</span>
+                                <span data-value="3">☆</span>
+                                <span data-value="4">☆</span>
+                                <span data-value="5">☆</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Context (Optional)</label>
+                            <textarea id="ratingNotes" rows="3" placeholder="What stood out? What was the impact?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Rating</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Timeline Mode -->
+            <div class="panel-content hidden" data-panel="timeline">
+                <h2>Skill Evolution Timeline</h2>
+                <p class="intro-text">See how skills, priorities, and maturity have evolved based on signals from practice.</p>
+
+                <div class="timeline-controls">
+                    <label>Time Range</label>
+                    <select id="timelineRange">
+                        <option value="1y">Last Year</option>
+                        <option value="3y" selected>Last 3 Years</option>
+                        <option value="all">All Time</option>
+                    </select>
+                </div>
+
+                <div id="timelineViz" class="timeline-visualization">
+                    <!-- D3 timeline will be rendered here -->
+                </div>
+
+                <div class="signal-legend">
+                    <h3>Signal Types</h3>
+                    <div class="legend-item">
+                        <span class="signal-dot" style="background: #4A90E2;"></span>
+                        <span>Learning Signal</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="signal-dot" style="background: #50C878;"></span>
+                        <span>Project Signal</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="signal-dot" style="background: #FFD700;"></span>
+                        <span>Regulatory Signal</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="signal-dot" style="background: #E74C3C;"></span>
+                        <span>Life Context Signal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Human Regulation Layer (Fixed Position) -->
+    <div class="human-regulation">
+        <h3>Self-Regulation Practices</h3>
+        <div class="regulation-items">
+            <div class="regulation-item">
+                <div class="regulation-icon">🥊</div>
+                <span>Muay Thai</span>
+                <p>Embodied discipline, balance, control</p>
+            </div>
+            <div class="regulation-item">
+                <div class="regulation-icon">🎸</div>
+                <span>Bass Guitar</span>
+                <p>Rhythm, timing, listening, creative constraint</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Life Context Modal -->
+    <div class="modal" id="lifeModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Life Context</h2>
+            <p class="life-intro">A small glimpse into my world - context, not branding.</p>
+            
+            <div class="life-sections">
+                <div class="life-section">
+                    <h3>🎵 Music Creation</h3>
+                    <p>Bass guitar, rhythm exploration, and creative constraint as a practice in listening and timing.</p>
+                </div>
+                
+                <div class="life-section">
+                    <h3>✈️ Travel & Rest</h3>
+                    <p>Holidays with my wife and our spicy diva kitten - intentional time to recharge and explore.</p>
+                </div>
+                
+                <div class="life-section">
+                    <h3>👨‍👩‍👧‍👧 Family & Lineage</h3>
+                    <p>Daughter to an incredibly resilient woman. Older sibling to two beautiful young women I'm proud of and helped raise.</p>
+                </div>
+                
+                <div class="life-section">
+                    <h3>🥊 Muay Thai</h3>
+                    <p>Embodied discipline that reduces system volatility and supports long-term adaptability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Life Context Trigger -->
+    <button class="life-context-btn" id="lifeContextBtn">
+        About My Life
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@latest/dist/duckdb-mvp.wasm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@latest/dist/duckdb-eh.wasm.js"></script>
+    <script type="module" src="engine-data.js"></script>
+    <script type="module" src="engine-3d.js"></script>
+    <script type="module" src="engine-ui.js"></script>
+    <script type="module" src="engine-main.js"></script>
+</body>
+</html>

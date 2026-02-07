@@ -1,0 +1,6 @@
+rating_id,skill_id,rating,context,observer_role,date
+rating001,stakeholder_mgmt,5,Worked together on enterprise risk framework project - Q3 2023,Project Sponsor,2023-11-20
+rating002,power_bi,5,Received Power BI dashboard for cross-border monitoring - Jan 2024,Business Stakeholder,2024-01-25
+rating003,internal_audit,5,Subject of IT controls audit - Sep 2023,IT Director,2023-09-30
+rating004,exec_synthesis,5,Received multiple executive reports and decision packs,CFO,2023-12-10
+rating005,sql_analytics,4,Code review of dimensional models for analytics platform,Senior Data Engineer,2023-11-15

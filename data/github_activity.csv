@@ -1,0 +1,9 @@
+repo_name,language,commit_count,last_commit_date,skills_demonstrated
+pbi-green-bank-cross-border-spend-monitoring,DAX,45,2024-01-28,"power_bi,sql_analytics,risk_modeling"
+docker-workshop,Python,23,2024-01-10,"docker_containers,python_data"
+azure-agents,Python,18,2024-01-22,"azure_agents,python_data"
+midas-platform,Python,67,2023-12-15,"python_data,sql_analytics,dbt_workflows"
+dbt-fundamentals,SQL,34,2024-01-05,"dbt_workflows,sql_analytics"
+risk-scenario-modeling,Python,29,2023-11-20,"risk_modeling,python_data,time_series"
+data-quality-framework,Python,41,2023-12-10,"python_data,sql_analytics,grc_frameworks"
+analytics-utilities,Python,52,2023-10-30,"python_data,sql_analytics"
