@@ -12,17 +12,37 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections for scroll animations
+// Main initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // Add animate class to sections
+    initScrollAnimations();
+    initNavigation();
+    initVideoCarousel();
+    initTimeline();
+    initLoadAnimation();
+});
+
+// Scroll Animations
+function initScrollAnimations() {
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.classList.add('animate-on-scroll');
         observer.observe(section);
     });
     
-    // Smooth scroll for navigation links
+    // Stagger animation for cards
+    const cards = document.querySelectorAll('.story-card, .project-card');
+    cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.classList.add('animate-on-scroll');
+        observer.observe(card);
+    });
+}
+
+// Navigation
+function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-links a');
+    
+    // Smooth scroll for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -30,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offsetTop = target.offsetTop - 80; // Account for fixed nav
+                    const offsetTop = target.offsetTop - 80;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -40,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Add active nav state on scroll
+    // Active nav state on scroll
     window.addEventListener('scroll', () => {
         const scrollPosition = window.scrollY + 100;
         
@@ -60,40 +80,247 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
+
+// Video Carousel
+function initVideoCarousel() {
+    const carouselTrack = document.querySelector('.carousel-track');
+    const carouselDots = document.querySelector('.carousel-dots');
+    const prevBtn = document.querySelector('.carousel-btn-prev');
+    const nextBtn = document.querySelector('.carousel-btn-next');
+    const slides = document.querySelectorAll('.video-card');
     
-    // Parallax effect for hero shapes
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const shapes = document.querySelectorAll('.shape');
+    if (!carouselTrack || !slides.length) return;
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        carouselDots.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    function updateCarousel() {
+        const offset = currentSlide * 100;
+        carouselTrack.style.transform = `translateX(-${offset}%)`;
         
-        shapes.forEach((shape, index) => {
-            const speed = 0.3 + (index * 0.1);
-            shape.style.transform = `translateY(${scrolled * speed}px)`;
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+    
+    prevBtn.addEventListener('click', () => {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateCarousel();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateCarousel();
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && currentSlide > 0) {
+            currentSlide--;
+            updateCarousel();
+        } else if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateCarousel();
+        }
+    });
+    
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carouselTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carouselTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0 && currentSlide < totalSlides - 1) {
+                // Swipe left
+                currentSlide++;
+                updateCarousel();
+            } else if (diff < 0 && currentSlide > 0) {
+                // Swipe right
+                currentSlide--;
+                updateCarousel();
+            }
+        }
+    }
+}
+
+// Interactive Timeline
+function initTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    if (!timelineItems.length) return;
+    
+    // Click to expand/collapse
+    timelineItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove active from all items
+            timelineItems.forEach(ti => ti.classList.remove('active'));
+            
+            // Add active to clicked item
+            item.classList.add('active');
+            
+            // Smooth scroll the timeline to center the active item
+            const timeline = document.querySelector('.timeline-horizontal');
+            const itemOffset = item.offsetLeft;
+            const timelineCenter = timeline.offsetWidth / 2;
+            const itemCenter = item.offsetWidth / 2;
+            
+            timeline.scrollTo({
+                left: itemOffset - timelineCenter + itemCenter,
+                behavior: 'smooth'
+            });
         });
     });
     
-    // Hover effects for project items
-    const workItems = document.querySelectorAll('.work-item');
-    workItems.forEach(item => {
+    // Hover effects
+    timelineItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            item.style.paddingLeft = '2rem';
+            if (!item.classList.contains('active')) {
+                item.style.transform = 'translateY(-5px)';
+            }
         });
         
         item.addEventListener('mouseleave', () => {
-            item.style.paddingLeft = '2rem';
+            if (!item.classList.contains('active')) {
+                item.style.transform = 'translateY(0)';
+            }
         });
+    });
+    
+    // Auto-expand first non-active item on scroll into view
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const firstActive = document.querySelector('.timeline-item.active');
+                if (firstActive) {
+                    const timeline = document.querySelector('.timeline-horizontal');
+                    const itemOffset = firstActive.offsetLeft;
+                    const timelineCenter = timeline.offsetWidth / 2;
+                    const itemCenter = firstActive.offsetWidth / 2;
+                    
+                    setTimeout(() => {
+                        timeline.scrollTo({
+                            left: itemOffset - timelineCenter + itemCenter,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    const educationSection = document.querySelector('.education-section');
+    if (educationSection) {
+        timelineObserver.observe(educationSection);
+    }
+}
+
+// Parallax effect (subtle)
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    
+    // Parallax for hero if present
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        const heroOverlay = hero.querySelector('.hero-overlay');
+        if (heroOverlay) {
+            const opacity = 0.5 + (scrolled / 1000) * 0.3;
+            heroOverlay.style.background = `rgba(0, 0, 0, ${Math.min(opacity, 0.8)})`;
+        }
+    }
+    
+    // Parallax for project images
+    const projectImages = document.querySelectorAll('.project-image img');
+    projectImages.forEach((img, index) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const speed = 0.3 + (index % 3) * 0.1;
+            const yPos = -(rect.top - window.innerHeight) * speed;
+            img.style.transform = `translateY(${yPos}px) scale(1.05)`;
+        }
     });
 });
 
-// Add stagger animation to timeline items
-const timelineItems = document.querySelectorAll('.timeline-item, .work-item, .skill-item');
-timelineItems.forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.1}s`;
-    item.classList.add('animate-on-scroll');
-    observer.observe(item);
+// Project card hover effects
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.zIndex = '1';
+    });
 });
 
-// Typing effect for code blocks (optional enhancement)
+// Story card animations
+document.querySelectorAll('.story-card').forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.15}s`;
+});
+
+// Smooth reveal for project showcase
+const showcaseObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 200);
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.project-showcase-item, .project-featured').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    showcaseObserver.observe(item);
+});
+
+// Add loading animation
+function initLoadAnimation() {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+}
+
+// Typing effect for code blocks (optional)
 function typeCode(element) {
     const code = element.textContent;
     element.textContent = '';
@@ -115,7 +342,7 @@ const codeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.dataset.typed) {
             entry.target.dataset.typed = 'true';
-            // Uncomment the line below to enable typing effect
+            // Uncomment to enable typing effect
             // typeCode(entry.target);
         }
     });
@@ -123,23 +350,20 @@ const codeObserver = new IntersectionObserver((entries) => {
 
 codeBlocks.forEach(block => codeObserver.observe(block));
 
-// Cursor trail effect (subtle)
-let cursorTrail = [];
-const trailLength = 5;
-
-document.addEventListener('mousemove', (e) => {
-    cursorTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
-    
-    if (cursorTrail.length > trailLength) {
-        cursorTrail.shift();
-    }
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
-});
+// Console easter egg
+console.log(`
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║   Hi there! Thanks for checking out my portfolio.         ║
+║                                                           ║
+║   This site is a reflection of my learning journey       ║
+║   and the systems I craft to enable sustainable          ║
+║   wellbeing.                                              ║
+║                                                           ║
+║   Want to connect? Let's talk about curiosity,           ║
+║   creativity, and building systems that heal.            ║
+║                                                           ║
+║   - Stefanie                                              ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+`);
