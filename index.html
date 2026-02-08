@@ -15,6 +15,7 @@
         <div class="nav-content">
             <a href="#" class="nav-brand">Stefanie Garises</a>
             <div class="nav-links">
+                <a href="#vision">Vision</a>
                 <a href="#about">About</a>
                 <a href="#journey">Journey</a>
                 <a href="#learning">Learning</a>
@@ -25,26 +26,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- Vision Section -->
+    <section class="vision-section" id="vision">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="hero-title-main">development</span>
-                    <span class="hero-title-sub">portfolio</span>
+        <div class="vision-content">
+            <div class="vision-text">
+                <h1 class="vision-title">
+                    <span class="vision-word">change</span>
+                    <span class="vision-word">practitioner</span>
                 </h1>
-                <p class="hero-tagline">Mastering the balance between protecting and enabling people to take necessary risks toward sustainable wellbeing.</p>
+                <p class="vision-tagline">
+                    Mastering the balance between protecting and enabling people 
+                    to take necessary risks toward sustainable wellbeing.
+                </p>
+                <p class="vision-tagline">
+                    Designing systems that heal people from the pain that other systems imposed upon us.
+                </p>
+                <div class="vision-skills">
+                    <span class="skill-pill">GRC & Internal Audit</span>
+                    <span class="skill-pill">Analytics Engineering</span>
+                    <span class="skill-pill">Enterprise Architecture</span>
+                    <span class="skill-pill">Quantitative Modeling</span>
+                    <span class="skill-pill">System Design</span>
+                </div>
             </div>
+            <div class="vision-visual">
+                <img src="assets/images/Change Practitioner.png" alt="Change Practitioner" class="vision-image">
+            </div>
+            <p class="hero-tagline">Designing systems that heal people from the pain that other systems imposed upon us.</p>
         </div>
-        <div class="hero-footer">
-            <div class="contact-info">
-                <a href="mailto:stefanieg84@gmail.com">stefanieg84@gmail.com</a>
-                <a href="https://github.com/Stefanieg84" target="_blank">@Stefanieg84</a>
-                <a href="tel:+447379809515">+44-737-980-9515</a>
-            </div>
+        <div class="vision-scroll-indicator">
+            <span>Scroll to explore my journey</span>
+            <div class="scroll-arrow">↓</div>
         </div>
     </section>
+
 
     <!-- About Section -->
     <section class="section about-section" id="about">
@@ -72,62 +88,72 @@
         
         <div class="story-timeline">
             <!-- Origin Story -->
-            <div class="story-card featured">
+            <div class="story-card featured" data-story="first-computer">
                 <div class="story-icon">🖥️</div>
                 <div class="story-content">
                     <h3>My First Computer</h3>
                     <span class="story-date">Childhood</span>
                     <p>Pure curiosity drove me to take apart my first computer. Fear of punishment made me put it back together. The pride in my mother's eyes when she realized I'd done it without help - that's when I knew technology was my calling.</p>
+                    <span class="read-more">Read Full Story →</span>
                 </div>
             </div>
 
             <!-- Grade 12 VBA Project -->
-            <div class="story-card">
+            <div class="story-card" data-story="vba-project">
                 <div class="story-icon">📊</div>
                 <div class="story-content">
                     <h3>VBA Examination Project</h3>
                     <span class="story-date">Grade 12</span>
                     <p>My first formal programming project - building an automated system in VBA for my 12th grade examination. This was where curiosity met structure.</p>
-                    <div class="story-links">
-                        <a href="#" class="story-link">View Project Details →</a>
-                    </div>
+                    <span class="read-more">Read Full Story →</span>
                 </div>
             </div>
 
             <!-- Internships -->
-            <div class="story-card">
+            <div class="story-card" data-story="internships">
                 <div class="story-icon">💼</div>
                 <div class="story-content">
                     <h3>Internships & Early Experience</h3>
                     <span class="story-date">University Years</span>
                     <p>Various internships that shaped my understanding of how systems can either constrain or empower people. Each experience taught me what I wanted to build differently.</p>
+                    <span class="read-more">Read Full Story →</span>
                 </div>
             </div>
 
             <!-- Honours Mini Thesis -->
-            <div class="story-card">
+            <div class="story-card" data-story="thesis">
                 <div class="story-icon">🎓</div>
                 <div class="story-content">
                     <h3>Honours Mini Thesis</h3>
                     <span class="story-date">2023</span>
                     <p>Synthesizing a real-world problem into an analytics solution based on software development principles. This project bridged academic rigor with practical application.</p>
-                    <div class="story-links">
-                        <a href="#" class="story-link">Read Thesis →</a>
-                    </div>
+                    <span class="read-more">Read Full Story →</span>
                 </div>
             </div>
 
             <!-- Hackathons -->
-            <div class="story-card">
+            <div class="story-card" data-story="hackathons">
                 <div class="story-icon">⚡</div>
                 <div class="story-content">
                     <h3>Hackathons</h3>
                     <span class="story-date">Ongoing</span>
                     <p>Multiple hackathons where rapid prototyping meets creative problem-solving. Including the azure-agents project and other collaborative explorations.</p>
+                    <span class="read-more">Read Full Story →</span>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Story Modal -->
+    <div class="story-modal" id="storyModal">
+        <div class="story-modal-overlay"></div>
+        <div class="story-modal-content">
+            <button class="story-modal-close">&times;</button>
+            <div class="story-modal-body" id="storyModalBody">
+                <!-- Story content will be injected here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Learning Section -->
     <section class="section learning-section" id="learning">
@@ -163,7 +189,7 @@
             <div class="project-card learning">
                 <div class="project-badge">Learning</div>
                 <div class="project-image">
-                    <img src="assets/images/dbt_logo.png" alt="DBT Project">
+                    <img src="assets/images/dbt-preview.png" alt="DBT Project">
                 </div>
                 <div class="project-info">
                     <h3>DBT Fundamentals</h3>
@@ -184,7 +210,7 @@
             <div class="project-card learning">
                 <div class="project-badge">Learning</div>
                 <div class="project-image">
-                    <img src="assets/images/MAF.webp" alt="Azure Trust Agents">
+                    <img src="assets/images/azure-agents-preview.png" alt="Azure Agents">
                 </div>
                 <div class="project-info">
                     <h3>Azure Agents</h3>
@@ -196,7 +222,7 @@
                         <span class="tech-tag">Hackathon</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Stefanieg84/azure-trust-agents" target="_blank" class="project-link-btn">View on GitHub →</a>
+                        <a href="https://github.com/Stefanieg84/azure-agents" target="_blank" class="project-link-btn">View on GitHub →</a>
                     </div>
                 </div>
             </div>
@@ -268,7 +294,6 @@
                 </div>
                 <div class="project-featured-visual">
                     <div class="architecture-preview">
-                        <!-- Your Midas architecture diagram -->
                         <img src="assets/images/midas-architecture.png" alt="Midas Architecture">
                     </div>
                 </div>
@@ -323,11 +348,11 @@
                             <span>grade12-project.vba</span>
                         </div>
                         <pre><code>' Early work - Grade 12 VBA Project
-                            Sub AutomateProcess()
-                                Dim worksheet As Worksheet
-                                ' My first steps in automation
-                                ' Where curiosity became craft
-                            End Sub</code></pre>
+Sub AutomateProcess()
+    Dim worksheet As Worksheet
+    ' My first steps in automation
+    ' Where curiosity became craft
+End Sub</code></pre>
                     </div>
                 </div>
             </div>
@@ -346,13 +371,13 @@
             <div class="timeline-item" data-id="bsc">
                 <div class="timeline-marker">
                     <div class="timeline-icon">
-                        <img src="assets/images/NUST_logo.png" alt="NUST" class="timeline-logo">
+                        <img src="assets/images/logos/nust-logo.png" alt="NUST" class="timeline-logo">
                     </div>
                 </div>
                 <h3 class="timeline-title">BSc<br>Computer Science</h3>
                 <div class="timeline-details">
                     <div class="timeline-badge">
-                        <img src="assets/images/NUST_logo.png" alt="Badge">
+                        <img src="assets/images/badges/nust-badge.png" alt="Badge">
                     </div>
                     <span class="timeline-institution">Namibia University of Science and Technology</span>
                     <span class="timeline-date">2015 - 2018</span>
@@ -363,13 +388,13 @@
             <div class="timeline-item" data-id="bsc-honours">
                 <div class="timeline-marker">
                     <div class="timeline-icon">
-                        <img src="assets/images/NUST_logo.png" alt="NUST" class="timeline-logo">
+                        <img src="assets/images/logos/nust-logo.png" alt="NUST" class="timeline-logo">
                     </div>
                 </div>
                 <h3 class="timeline-title">BSc(H)<br>Computer Science</h3>
                 <div class="timeline-details">
                     <div class="timeline-badge">
-                        <img src="assets/images/NUST_logo.png" alt="Badge">
+                        <img src="assets/images/badges/nust-honours-badge.png" alt="Badge">
                     </div>
                     <span class="timeline-institution">Namibia University of Science and Technology</span>
                     <span class="timeline-date">2021 - 2023</span>
@@ -380,13 +405,13 @@
             <div class="timeline-item active" data-id="msc">
                 <div class="timeline-marker">
                     <div class="timeline-icon">
-                        <img src="assets/images/USuss_logo.png" alt="Sussex" class="timeline-logo">
+                        <img src="assets/images/logos/sussex-logo.png" alt="Sussex" class="timeline-logo">
                     </div>
                 </div>
                 <h3 class="timeline-title">MSc<br>Sustainable Development</h3>
                 <div class="timeline-details">
                     <div class="timeline-badge">
-                        <img src="assets/images/USuss_logo.png" alt="Badge">
+                        <img src="assets/images/badges/sussex-badge.png" alt="Badge">
                     </div>
                     <span class="timeline-institution">University of Sussex</span>
                     <span class="timeline-date">2025 - 2027 · In Progress</span>
@@ -398,33 +423,31 @@
             <div class="timeline-item" data-id="togaf">
                 <div class="timeline-marker">
                     <div class="timeline-icon">
-                        <img src="assets/images/TOGAF_logo.png" alt="TOGAF" class="timeline-logo">
+                        <img src="assets/images/logos/togaf-logo.png" alt="TOGAF" class="timeline-logo">
                     </div>
                 </div>
-                <h3 class="timeline-title">TOGAF 9<br>Enterprise Architecture Practitioner</h3>
+                <h3 class="timeline-title">TOGAF 9<br>Practitioner</h3>
                 <div class="timeline-details">
                     <div class="timeline-badge">
-                        <img src="assets/images/TOGAF_logo.png" alt="Badge">
+                        <img src="assets/images/badges/togaf-badge.png" alt="Badge">
                     </div>
                     <span class="timeline-institution">The Open Group</span>
-                    <span class="timeline-date">2024 - Present</span>
-                    <p>Since February 2024, applying enterprise architecture principles to design systems that align with Organisational goals while enabling innovation.</p>
+                    <p>Applying enterprise architecture principles to design systems that align with organizational goals while enabling innovation.</p>
                 </div>
             </div>
 
             <div class="timeline-item" data-id="frm">
                 <div class="timeline-marker">
                     <div class="timeline-icon">
-                        <img src="assets/images/FRM1 Badge.webp" alt="GARP" class="timeline-logo">
+                        <img src="assets/images/logos/garp-logo.png" alt="GARP" class="timeline-logo">
                     </div>
                 </div>
                 <h3 class="timeline-title">FRM<br>Part I</h3>
                 <div class="timeline-details">
                     <div class="timeline-badge">
-                        <img src="assets/images/FRM1 Badge.webp" alt="Badge">
+                        <img src="assets/images/badges/frm-badge.png" alt="Badge">
                     </div>
                     <span class="timeline-institution">Global Association of Risk Professionals</span>
-                    <span class="timeline-date">2023 - Present</span>
                     <p>Understanding risk management principles to create solutions that balance risk and opportunity effectively.</p>
                 </div>
             </div>
@@ -432,16 +455,15 @@
             <div class="timeline-item" data-id="fabric">
                 <div class="timeline-marker">
                     <div class="timeline-icon">
-                        <img src="assets/images/fabric_logo.svg" alt="Microsoft" class="timeline-logo">
+                        <img src="assets/images/logos/microsoft-logo.png" alt="Microsoft" class="timeline-logo">
                     </div>
                 </div>
                 <h3 class="timeline-title">Fabric Analytics<br>Engineer</h3>
                 <div class="timeline-details">
                     <div class="timeline-badge">
-                        <img src="assets/images/fabric_logo.svg" alt="Badge">
+                        <img src="assets/images/badges/fabric-badge.png" alt="Badge">
                     </div>
                     <span class="timeline-institution">Microsoft</span>
-                    <span class="timeline-date">2024 - Present</span>
                     <p>Leveraging advanced analytics and data engineering to design systems with actionable insights while ensuring governance and compliance.</p>
                 </div>
             </div>

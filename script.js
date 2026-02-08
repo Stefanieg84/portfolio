@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initVideoCarousel();
     initTimeline();
+    initStoryModals();
     initLoadAnimation();
 });
 
@@ -349,6 +350,103 @@ const codeObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 codeBlocks.forEach(block => codeObserver.observe(block));
+
+// Story Modal functionality
+function initStoryModals() {
+    const storyCards = document.querySelectorAll('.story-card[data-story]');
+    const modal = document.getElementById('storyModal');
+    const modalBody = document.getElementById('storyModalBody');
+    const closeBtn = document.querySelector('.story-modal-close');
+    const overlay = document.querySelector('.story-modal-overlay');
+    
+    // Story content database - you'll replace these with your own stories
+    const stories = {
+        'first-computer': {
+            title: 'My First Computer',
+            date: 'Childhood',
+            icon: '🖥️',
+            content: `
+                <p>I was 8 years old when my mother brought home our first computer...</p>
+                <p>[Your full story will go here. Write it in your own words, from your perspective as an 8-year-old experiencing this moment.]</p>
+                <p>The fear I felt when I realized what I'd done was overwhelming, but the determination to fix it was stronger...</p>
+                <p>[Continue your story...]</p>
+            `
+        },
+        'vba-project': {
+            title: 'VBA Examination Project',
+            date: 'Grade 12',
+            icon: '📊',
+            content: `
+                <p>My Grade 12 examination project was more than just an assignment...</p>
+                <p>[Your full story about this project]</p>
+            `
+        },
+        'internships': {
+            title: 'Internships & Early Experience',
+            date: 'University Years',
+            icon: '💼',
+            content: `
+                <p>My internships taught me what I didn't want to build...</p>
+                <p>[Your full story about internships]</p>
+            `
+        },
+        'thesis': {
+            title: 'Honours Mini Thesis',
+            date: '2023',
+            icon: '🎓',
+            content: `
+                <p>The thesis brought together everything I'd been learning...</p>
+                <p>[Your full story about your thesis]</p>
+            `
+        },
+        'hackathons': {
+            title: 'Hackathons',
+            date: 'Ongoing',
+            icon: '⚡',
+            content: `
+                <p>Hackathons showed me the power of rapid prototyping...</p>
+                <p>[Your full story about hackathons]</p>
+            `
+        }
+    };
+    
+    function openModal(storyId) {
+        const story = stories[storyId];
+        if (!story) return;
+        
+        modalBody.innerHTML = `
+            <h2><span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">${story.icon}</span>${story.title}</h2>
+            <div class="story-meta">${story.date}</div>
+            ${story.content}
+        `;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Click handlers
+    storyCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const storyId = card.dataset.story;
+            openModal(storyId);
+        });
+    });
+    
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
 
 // Console easter egg
 console.log(`
