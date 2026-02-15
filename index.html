@@ -347,44 +347,47 @@
                         <div class="code-header">
                             <span>BuzzWire Online Store - Digital Transformation</span>
                         </div>
-                        <pre><code>' Form 1: Welcome
-Public Class Form1
-Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
-LoginForm1.Show()
-End Sub
-Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles
-btnClose.Click
-Me.Close()
-End Sub
-End Class
-Log In Form
-Public Class LoginForm1
-' TODO: Insert code to perform custom authentication using the provided username
-and password
-' (See http://go.microsoft.com/fwlink/?LinkId=35339).
-' The custom principal can then be attached to the current thread's principal as
-follows:
-' My.User.CurrentPrincipal = CustomPrincipal
-' where CustomPrincipal is the IPrincipal implementation used to perform
-authentication.
-' Subsequently, My.User will return identity information encapsulated in the
-CustomPrincipal object
-' such as the username, display name, etc.
-Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-Handles OK.Click
-If UsernameTextBox.Text = "Admin" And PasswordTextBox.Text = "BuzzWire" Then
-MsgBox("You have successfully logged in!")
-Form2.Show()
-Me.Close()
-Else : MsgBox("Incorrect Username and/or Password!")
-End If
-End Sub
-Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As
-System.EventArgs) Handles Cancel.Click
-Me.Close()
-End Sub
-Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-End Sub
+                        <pre><code>' Form 3: Members (with data validation)
+Public Class Form3
+    
+    Private Sub MembersBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles MembersBindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.MembersBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.MembersDataSet)
+    End Sub
+
+    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'MembersDataSet.Members' table. You can move, or remove it, as needed.
+        Me.MembersTableAdapter.Fill(Me.MembersDataSet.Members)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnProcess_Click(sender As Object, e As EventArgs) Handles btnProcess.Click
+        If Not MemIDTextBox.Text = "M001" <> "M999" Then
+            MsgBox("MemID must consist of the letter M and 3 didgits!")
+        End If
+        
+        If Not DOBDateTimePicker.Text <= 31 / 12 / 1996 Then
+            MsgBox("Must be 18 years or older!")
+        End If
+        
+        If Not CellNoTextBox.Text = "##########" Then
+            MsgBox("CellNo consists of 10 digits!")
+        End If
+        
+        If Not EmailTextBox.Text = "*@*.*" Then
+            MsgBox("Please use the proper format for an email address. e.g. juicegrape@gmail.com")
+        End If
+        
+        If Not AccNoTextBox.Text = "################" Then
+            MsgBox("AccNo consists of 16 digits!")
+        End If
+        
+    End Sub
+
 End Class</code></pre>
                     </div>
                 </div>
