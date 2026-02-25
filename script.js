@@ -366,10 +366,23 @@ function initStoryModals() {
             date: 'Childhood',
             icon: '🖥️',
             content: `
-                <p>I was 8 years old when my mother brought home our first computer...</p>
-                <p>[Your full story will go here. Write it in your own words, from your perspective as an 8-year-old experiencing this moment.]</p>
-                <p>The fear I felt when I realized what I'd done was overwhelming, but the determination to fix it was stronger...</p>
-                <p>[Continue your story...]</p>
+                <p>In 2004, at eight years old, in Klein Kuppe, Windhoek, I was left alone with our family’s first computer. A desktop with a monitor, keyboard, mouse, and a tower with visible hardware components.</p>
+
+                <p>I explored the software first. Games, mouse, keyboard. Then I got bored.</p>
+
+                <p>I wanted to know what was inside.</p>
+
+                <p>So I opened the PC. I carefully removed components including the RAM stick, accessible drives (CD-ROM and Floppy Disk), studying how they were latched onto the motherboard. I paid attention to everything before touching it, knowing I would need to put it back exactly as I found it.</p>
+
+                <p>As it got late, fear kicked in because my mom was coming home. I reassembled the machine from memory.</p>
+
+                <p>It powered on.</p>
+
+                <p>My mother never would have known, but I told her because I was excited about what I had achieved. That pride in her reaction marked a turning point. She recognised what I was drawn to, and from then on made sure I had every opportunity to pursue technology at school.</p>
+
+                <p>That moment shaped how I still work today:</p>
+                <p>Curiosity first. Structure second. Responsibility always.</p>
+                </p>
             `
         },
         'vba-project': {
@@ -378,7 +391,27 @@ function initStoryModals() {
             icon: '📊',
             content: `
                 <p>My Grade 12 examination project was more than just an assignment...</p>
-                <p>[Your full story about this project]</p>
+                <p>From Grade 8 through Grade 12, I studied Computer Science at Higher Level. In our final two years, we were required to design and build a complete software application from scratch.
+
+I created a fictional gadget store — “Buzzwire” — that operated entirely on manual systems and paper records. I identified inefficiencies in stock management, customer servicing, and reporting accuracy.
+
+My solution:
+A database-driven inventory management system built in VBA using Microsoft Access and Visual Studio. I documented:
+	•	Problem definition
+	•	Solution analysis
+	•	Conceptual design
+	•	Logical modelling
+	•	Physical implementation
+
+I produced a working Windows executable (.exe) and supporting documentation.
+
+This project was pivotal. It was the first time I experienced the full lifecycle of systems thinking:
+
+Diagnose → Design → Build → Deliver.
+
+I achieved a Grade 1 (highest distinction).
+
+More importantly, it confirmed that I enjoyed building structured solutions to messy problems.</p>
             `
         },
         'internships': {
@@ -387,7 +420,38 @@ function initStoryModals() {
             icon: '💼',
             content: `
                 <p>My internships taught me what I didn't want to build...</p>
-                <p>[Your full story about internships]</p>
+                <p>I pursued internships not because I had to, but because the classroom felt insufficient.
+
+1. FabLab Namibia (11 months)
+
+At the university’s innovation and prototyping hub, I worked as an ICT and machine learning intern. I learned to operate:
+	•	CNC routers
+	•	3D printers
+	•	Laser cutters
+	•	Vinyl printers
+	•	AutoCAD systems
+
+I helped entrepreneurs turn ideas into physical prototypes — bridging digital design and real-world execution.
+
+I also co-led outreach through CodeBus Africa, travelling across Namibia to teach children (10–16) how to program music using Sonic Pi. We focused on demystifying technology, especially for girls and underrepresented communities.
+
+This experience shaped my belief that:
+Technology is a tool for empowerment, not exclusion.
+
+2. Bank Julius Baer, Switzerland (2018)
+
+As a Learning & Leadership Development Trainee, I developed the bank’s first GDPR e-learning course the year the regulation came into force.
+
+My role blended:
+	•	Stakeholder coordination
+	•	Regulatory interpretation
+	•	Instructional design
+	•	LMS technical configuration
+	•	Rollout management
+
+It was my first exposure to compliance, governance, and organisational systems at scale, themes that still influence my career direction.
+
+These internships taught me that systems are not only technical. They're organisational, behavioural, and regulatory.</p>
             `
         },
         'thesis': {
